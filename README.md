@@ -2,7 +2,7 @@
 
 <b>What is HopFramework?</b>
 
-Hop Framework is a framework that began with a beer lover and IPA lover. IPA have as main characteristic the addition of different kinds of hops in brewing to increase the flavor and aroma of te beer. Also the word hop even can be interpreted as jump then the project have as principal goal help developers to understand the DDD principles using some design patterns and applying that in your project as infrastructure.
+Hop Framework is a framework that began with a beer lover and IPA lover. IPA have as main characteristic the addition of different kinds of hops in brewing to increase the flavor and aroma of the beer. Also the word hop even can be interpreted as jump then the project have as principal goal help developers to understand the DDD principles using some design patterns and applying that in your project as infrastructure.
 
 <b>Who should use this framework?</b>
 
