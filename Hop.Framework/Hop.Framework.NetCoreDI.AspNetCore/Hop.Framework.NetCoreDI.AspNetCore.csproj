@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>4.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hop.Framework.Core\Hop.Framework.Core.csproj" />
+    <ProjectReference Include="..\Hop.Framework.NetCoreDI\Hop.Framework.NetCoreDI.csproj" />
+  </ItemGroup>
+
+</Project>
