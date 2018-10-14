@@ -6,20 +6,20 @@ Hop Framework is a framework that began with a beer lover, and IPA lover, that h
 
 <b>Who should use this framework?</b>
 
-All developers that have the necessity to segregate the infrastructure from domain and want to focus on business development forgetting the complexity to think in architecture and that need to bootstrap a new infrastructure project every time that is requested a new business project.
+All developers that have the necessity to segregate the infrastructure from domain and want to focus on business development forgetting the complexity to think in architecture and that need to bootstrap a new infrastructure project every time that is requested a new business project.<br/>
 The project is based on DDD and some others design patterns with the goal of isolate the domain and business rules from the technology.
 
 <b>Patterns</b>
 
-Dependency Injection
-Inversion of Control
-Repository
-Unity of Work
-Command Pattern
-Domain Notification
-Services
+Dependency Injection<br/>
+Inversion of Control<br/>
+Repository<br/>
+Unity of Work<br/>
+Command Pattern<br/>
+Domain Notification<br/>
+Services<br/>
 
 <b>Language</b>
 
-.NET Core
+.NET Core<br/>
 .NET Standard
