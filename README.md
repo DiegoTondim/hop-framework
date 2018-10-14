@@ -1,6 +1,7 @@
 # <img src="https://i.imgur.com/viGfas1.jpg"/>
 
 <b>What is HopFramework?</b>
+
 Hop Framework is a framework that began with a beer lover, and IPA lover, that have as principal characteristic the addition of hops in brewing. Also the word hop even can be interpreted as jump then the project have as principal goal help developers to understand the DDD principles using some design patterns and applying that as your project infrastructure.
 
 <b>Who should use this framework?</b>
@@ -19,5 +20,6 @@ Domain Notification
 Services
 
 <b>Language</b>
+
 .NET Core
 .NET Standard
