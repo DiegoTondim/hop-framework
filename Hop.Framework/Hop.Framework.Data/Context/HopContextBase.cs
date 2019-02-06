@@ -5,114 +5,131 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hop.Framework.EFCore.Context
 {
-    public class HopContextBase : DbContext
-    {
-        protected readonly IUserContextService ContextService;
-        protected readonly IDateProvider DateProvider;
-        public Guid Id { get; set; }
+	public class HopContextBase : DbContext
+	{
+		protected readonly IUserContextService ContextService;
+		protected readonly IDateProvider DateProvider;
+		public Guid Id { get; set; }
 
-        public HopContextBase(IUserContextService contextService,
-                                 IDateProvider dateProvider) : base()
-        {
-            ContextService = contextService;
-            DateProvider = dateProvider;
-            ContextService = contextService;
-            Id = Guid.NewGuid();
-        }
+		public HopContextBase(IUserContextService contextService,
+								 IDateProvider dateProvider) : base()
+		{
+			ContextService = contextService;
+			DateProvider = dateProvider;
+			ContextService = contextService;
+			Id = Guid.NewGuid();
+		}
 
-        public HopContextBase(IUserContextService contextService,
-            IDateProvider dateProvider,
-            DbContextOptions options) : base(options)
-        {
-            DateProvider = dateProvider;
-            ContextService = contextService;
-            Id = Guid.NewGuid();
-        }
+		public HopContextBase(IUserContextService contextService,
+			IDateProvider dateProvider,
+			DbContextOptions options) : base(options)
+		{
+			DateProvider = dateProvider;
+			ContextService = contextService;
+			Id = Guid.NewGuid();
+		}
 
-        private const string UsuarioAnonimo = "[Anonymous]";
+		private const string ANONYMOUS_USER = "[Anonymous]";
 
-        public override int SaveChanges()
-        {
-            TrackRecord(ChangeTracker);
+		public void AutoLoadMappings<TContext>(ModelBuilder modelBuilder) where TContext : HopContextBase
+		{
+			var implementedConfigTypes = typeof(TContext).Assembly
+				.GetTypes()
+				.Where(t => !t.IsAbstract
+					&& !t.IsGenericTypeDefinition
+					&& t.GetTypeInfo().ImplementedInterfaces.Any(i =>
+						i.GetTypeInfo().IsGenericType && i.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>)));
 
-            CustomChangeTrackingBeforeSave(ChangeTracker);
-            var result = base.SaveChanges();
-            CustomChangeTrackingAfterSave(ChangeTracker);
-            return result;
-        }
+			foreach (var configType in implementedConfigTypes)
+			{
+				dynamic config = Activator.CreateInstance(configType);
+				modelBuilder.ApplyConfiguration(config);
+			}
+		}
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-            TrackRecord(ChangeTracker);
+		public override int SaveChanges()
+		{
+			TrackRecord(ChangeTracker);
 
-            CustomChangeTrackingBeforeSave(ChangeTracker);
-            var result = base.SaveChangesAsync(cancellationToken);
-            CustomChangeTrackingAfterSave(ChangeTracker);
-            return result;
-        }
+			CustomChangeTrackingBeforeSave(ChangeTracker);
+			var result = base.SaveChanges();
+			CustomChangeTrackingAfterSave(ChangeTracker);
+			return result;
+		}
 
-        public virtual void CustomChangeTrackingBeforeSave(ChangeTracker changeTracker)
-        {
+		public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
+		{
+			TrackRecord(ChangeTracker);
 
-        }
+			CustomChangeTrackingBeforeSave(ChangeTracker);
+			var result = base.SaveChangesAsync(cancellationToken);
+			CustomChangeTrackingAfterSave(ChangeTracker);
+			return result;
+		}
 
-        public virtual void CustomChangeTrackingAfterSave(ChangeTracker changeTracker)
-        {
+		public virtual void CustomChangeTrackingBeforeSave(ChangeTracker changeTracker)
+		{
 
-        }
+		}
 
-        private void TrackRecord(ChangeTracker changeTracker)
-        {
-            if (changeTracker == null)
-            {
-                return;
-            }
+		public virtual void CustomChangeTrackingAfterSave(ChangeTracker changeTracker)
+		{
 
-            var when = DateProvider.UTC();
+		}
 
-            string userName;
-            try
-            {
-                userName = ContextService?.UserContext?.Name ?? UsuarioAnonimo;
-            }
-            catch
-            {
-                userName = UsuarioAnonimo;
-            }
+		private void TrackRecord(ChangeTracker changeTracker)
+		{
+			if (changeTracker == null)
+			{
+				return;
+			}
 
-            var addedLongEntries = changeTracker.Entries<IAuditEntity<long>>().Where(p => p.State == EntityState.Added);
-            var addedGuidEntries = changeTracker.Entries<IAuditEntity<Guid>>().Where(p => p.State == EntityState.Added);
-            var updatedLongEntries = changeTracker.Entries<IAuditEntity<long>>().Where(p => p.State == EntityState.Modified);
-            var updatedGuidEntries = changeTracker.Entries<IAuditEntity<Guid>>().Where(p => p.State == EntityState.Modified);
+			var when = DateProvider.UTC();
 
-            var addedAuditedLongEntities = addedLongEntries.Select(p => p.Entity);
-            foreach (var added in addedAuditedLongEntities)
-            {
-                added.OnAuditInsert(userName, when);
-            }
+			string userName;
+			try
+			{
+				userName = ContextService?.UserContext?.Name ?? ANONYMOUS_USER;
+			}
+			catch
+			{
+				userName = ANONYMOUS_USER;
+			}
 
-            var addedAuditedGuidEntities = addedGuidEntries.Select(p => p.Entity);
-            foreach (var added in addedAuditedGuidEntities)
-            {
-                added.OnAuditInsert(userName, when);
-            }
+			var addedLongEntries = changeTracker.Entries<IAuditEntity>().Where(p => p.State == EntityState.Added);
+			var addedGuidEntries = changeTracker.Entries<IAuditEntity>().Where(p => p.State == EntityState.Added);
+			var updatedLongEntries = changeTracker.Entries<IAuditEntity>().Where(p => p.State == EntityState.Modified);
+			var updatedGuidEntries = changeTracker.Entries<IAuditEntity>().Where(p => p.State == EntityState.Modified);
 
-            var modifiedAuditedLongEntities = updatedLongEntries.Select(p => p.Entity);
-            foreach (var modified in modifiedAuditedLongEntities)
-            {
-                modified.OnAuditUpdate(userName, when);
-            }
+			var addedAuditedLongEntities = addedLongEntries.Select(p => p.Entity);
+			foreach (var added in addedAuditedLongEntities)
+			{
+				added.OnAuditInsert(userName, when);
+			}
 
-            var modifiedAuditedGuidEntities = updatedGuidEntries.Select(p => p.Entity);
-            foreach (var modified in modifiedAuditedGuidEntities)
-            {
-                modified.OnAuditUpdate(userName, when);
-            }
-        }
-    }
+			var addedAuditedGuidEntities = addedGuidEntries.Select(p => p.Entity);
+			foreach (var added in addedAuditedGuidEntities)
+			{
+				added.OnAuditInsert(userName, when);
+			}
+
+			var modifiedAuditedLongEntities = updatedLongEntries.Select(p => p.Entity);
+			foreach (var modified in modifiedAuditedLongEntities)
+			{
+				modified.OnAuditUpdate(userName, when);
+			}
+
+			var modifiedAuditedGuidEntities = updatedGuidEntries.Select(p => p.Entity);
+			foreach (var modified in modifiedAuditedGuidEntities)
+			{
+				modified.OnAuditUpdate(userName, when);
+			}
+		}
+	}
 }

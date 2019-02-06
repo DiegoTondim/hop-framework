@@ -153,5 +153,9 @@ namespace Hop.Framework.Core.Tests.Bootstrapper
         {
             return null;
         }
-    }
+
+		public void Load(DependencyModule module)
+		{
+		}
+	}
 }

@@ -6,12 +6,12 @@ namespace Hop.Framework.Domain.Events
     public abstract class Event : IEvent
     {
         public DateTime Timestamp { get; private set; }
-        public Guid Id { get; set; }
+        public Guid MessageId { get; set; }
 
         protected Event()
         {
             Timestamp = DateTime.Now;
-            Id = Guid.NewGuid();
+            MessageId = Guid.NewGuid();
         }
     }
 }

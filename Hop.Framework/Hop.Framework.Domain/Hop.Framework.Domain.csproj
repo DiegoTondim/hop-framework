@@ -4,9 +4,14 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Domain</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>4.0.0</Version>
-    <AssemblyVersion>4.0.0.0</AssemblyVersion>
-    <FileVersion>4.0.0.0</FileVersion>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Authors>Diego Tondim</Authors>
+    <Product>Hop Framework</Product>
+    <PackageIconUrl>https://i.imgur.com/hlgdUPa.jpg</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/DiegoTondim/hop-framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DiegoTondim/hop-framework</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

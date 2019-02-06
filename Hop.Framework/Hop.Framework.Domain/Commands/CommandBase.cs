@@ -1,8 +1,10 @@
-﻿using Hop.Framework.Domain.Events;
+﻿using Hop.Framework.Core.Messaging;
+using System;
 
 namespace Hop.Framework.Domain.Commands
 {
-    public abstract class CommandBase : Event
-    {
-    }
+	public abstract class CommandBase : IEvent
+	{
+		public Guid MessageId { get; set; }
+	}
 }

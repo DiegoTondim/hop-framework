@@ -142,7 +142,11 @@ namespace Hop.Framework.UnitTests.DI
         {
             _container.Dispose();
         }
-    }
+
+		public void Load(DependencyModule module)
+		{
+		}
+	}
 
     public class UnitTestsContainerThreadScope : IContainerScoped
     {

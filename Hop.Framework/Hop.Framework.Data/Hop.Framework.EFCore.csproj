@@ -4,14 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Data</Description>
-    <Version>4.0.0</Version>
-    <Authors>HBSIS.Supply.Framework.Data</Authors>
-    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <Version>1.1.0</Version>
+    <Authors>Diego Tondim</Authors>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <Company>Diego Tondim</Company>
+    <Product>Hop Framework</Product>
+    <PackageIconUrl>https://i.imgur.com/hlgdUPa.jpg</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/DiegoTondim/hop-framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DiegoTondim/hop-framework</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
   </ItemGroup>
 
   <ItemGroup>
