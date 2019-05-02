@@ -41,4 +41,4 @@ Pull requests, issues and commentary welcome!<br/>
 Sometimes it's worth getting in touch with me to discuss changes before doing any work incase this is something I am already doing or it might not make sense.<br/>
 
 <b>Things that are currently annoying me</b>
-[![](https://codescene.io/projects/4694/status.svg)](https://codescene.io/projects/4694/jobs/latest-successful/results)
+[![](https://codescene.io/projects/4694/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/4694/jobs/latest-successful/results)
