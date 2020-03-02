@@ -28,13 +28,7 @@ namespace Hop.Framework.Domain.Tests.Async
     {
         public ServiceAsyncTest()
         {
-            Bootstrapper
-                .Configure()
-                .UserUnitTestsContainer()
-                .ThreadLifestyle()
-                .UseDomainNotifications()
-                .RegisterModule<CommandModule>()
-                .Build();
+            
         }
 
         [Test]
