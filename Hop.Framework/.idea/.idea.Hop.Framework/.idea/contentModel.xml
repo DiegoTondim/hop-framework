@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.3/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.3/system/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Hop.Framework.310799979.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/1.4.0/build/_common/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/1.4.0/build/_common/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/mstest.testadapter/1.4.0/build/netcoreapp1.0/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.12.0/build/netcoreapp1.0/NUnit3.TestAdapter.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.12.0/build/netcoreapp1.0/NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.12.0/build/netcoreapp1.0/nunit.engine.netstandard.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="API" t="Include" />
+      <e p="Core" t="Include" />
+      <e p="Hop.Api.Server.Configuration" t="IncludeRecursive">
+        <e p="Hop.Api.Server.Configuration.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Hop.Api.Server.Configuration.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Api.Server.Core" t="IncludeRecursive">
+        <e p="Auth" t="Include">
+          <e p="AuthFilter.cs" t="Include" />
+          <e p="AuthorizationResult.cs" t="Include" />
+          <e p="AuthorizationResultType.cs" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="HopAuthorizedControllerBase.cs" t="Include" />
+          <e p="HopControllerBase.cs" t="Include" />
+          <e p="HopControllerBaseExtensions.cs" t="Include" />
+          <e p="HopControllerCrudBase .cs" t="Include" />
+          <e p="HopControllerLookUpBase.cs" t="Include" />
+          <e p="HttpContextExtensions.cs" t="Include" />
+        </e>
+        <e p="Dispatcher" t="Include">
+          <e p="Dispatcher.cs" t="Include" />
+        </e>
+        <e p="Filters" t="Include">
+          <e p="DateFilter.cs" t="Include" />
+        </e>
+        <e p="Hop.Api.Server.Core.csproj" t="IncludeRecursive" />
+        <e p="Middleware" t="Include">
+          <e p="ErrorHandlingMiddleware.cs" t="Include" />
+        </e>
+        <e p="Response" t="Include">
+          <e p="HopApiResponse.cs" t="Include" />
+        </e>
+        <e p="Settings" t="Include">
+          <e p="DefaultJsonSettingsInitializer.cs" t="Include" />
+          <e p="DefaultMiddlewareInitializer.cs" t="Include" />
+          <e p="DefaultSecuritySettingsInitializer.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Hop.Api.Server.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.Core" t="IncludeRecursive">
+        <e p="Extensions" t="Include">
+          <e p="EnumExtensions.cs" t="Include" />
+          <e p="ExceptionExtensions.cs" t="Include" />
+          <e p="ObjectExtensions.cs" t="Include" />
+          <e p="SerializerExtensions.cs" t="Include" />
+          <e p="StringExtensions.cs" t="Include" />
+        </e>
+        <e p="Hop.Framework.Core.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Hop.Framework.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.Data" t="IncludeRecursive">
+        <e p="Context" t="Include">
+          <e p="HopContextBase.cs" t="Include" />
+        </e>
+        <e p="Conventions" t="Include">
+          <e p="MaxLengthConvention.cs" t="Include" />
+          <e p="ModelBuilderExtensions.cs" t="Include" />
+        </e>
+        <e p="Hop.Framework.EFCore.csproj" t="IncludeRecursive" />
+        <e p="Properties" t="Include" />
+        <e p="Repository" t="Include">
+          <e p="IncludeExtension.cs" t="Include" />
+          <e p="ReadOnlyRepositoryBase.cs" t="Include" />
+          <e p="ReadOnlyRepositoryWithGuidKeyBase.cs" t="Include" />
+          <e p="ReadOnlyRepositoryWithLongKeyBase.cs" t="Include" />
+          <e p="RepositoryBase.cs" t="Include" />
+          <e p="RepositoryConsts.cs" t="Include" />
+          <e p="RepositoryWithGuidKeyBase.cs" t="Include" />
+          <e p="RepositoryWithLongKeyBase.cs" t="Include" />
+          <e p="SoftDeleteVisitor.cs" t="Include" />
+          <e p="UnityOfWork.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Hop.Framework.EFCore.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.Data.Tests" t="IncludeRecursive">
+        <e p="Hop.Framework.EFCore.Tests.csproj" t="IncludeRecursive" />
+        <e p="HopContextBaseTest.cs" t="Include" />
+        <e p="Infra" t="Include">
+          <e p="Context" t="Include">
+            <e p="InMemoryContext.cs" t="Include" />
+            <e p="UserContext.cs" t="Include" />
+            <e p="UserContextService.cs" t="Include" />
+          </e>
+          <e p="Models" t="Include">
+            <e p="TabelaTesteWithAudit.cs" t="Include" />
+            <e p="TabelaTesteWithGuidKey.cs" t="Include" />
+            <e p="TabelaTesteWithLongKey.cs" t="Include" />
+          </e>
+          <e p="Repositories" t="Include">
+            <e p="TabelaTesteReadOnlyWithGuidKeyRepository.cs" t="Include" />
+            <e p="TabelaTesteReadOnlyWithLongKeyRepository.cs" t="Include" />
+            <e p="TabelaTesteWithGuidKeyRepository.cs" t="Include" />
+            <e p="TabelaTesteWithLongKeyRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="RepositoryWithGuidKeyTest.cs" t="Include" />
+        <e p="RepositoryWithLongKeyTest.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Hop.Framework.EFCore.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="Hop.Framework.EFCore.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.Domain" t="IncludeRecursive">
+        <e p="Commands" t="Include">
+          <e p="CommandBase.cs" t="Include" />
+          <e p="DeleteCommand.cs" t="Include" />
+        </e>
+        <e p="Events" t="Include">
+          <e p="Event.cs" t="Include" />
+          <e p="IEvent.cs" t="Include" />
+        </e>
+        <e p="Handlers" t="Include">
+          <e p="CommandHandlerBase.cs" t="Include" />
+          <e p="ICommandHandler.cs" t="Include" />
+          <e p="ICommandHandlerAsync.cs" t="Include" />
+        </e>
+        <e p="Hop.Framework.Domain.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="AuditEntity.cs" t="Include" />
+          <e p="Entity.cs" t="Include" />
+          <e p="IAuditEntity.cs" t="Include" />
+          <e p="IEntity.cs" t="Include" />
+          <e p="ISoftDelete.cs" t="Include" />
+        </e>
+        <e p="Module" t="Include">
+          <e p="ServiceCollectionExtensions.cs" t="Include" />
+        </e>
+        <e p="Notification" t="Include">
+          <e p="DomainNotification.cs" t="Include" />
+          <e p="DomainNotificationHandler.cs" t="Include" />
+          <e p="IDomainNotificationHandler.cs" t="Include" />
+        </e>
+        <e p="Repository" t="Include">
+          <e p="FilterBase.cs" t="Include" />
+          <e p="IReadOnlyRepository.cs" t="Include" />
+          <e p="IReadOnlyRepositoryWithGuidKey.cs" t="Include" />
+          <e p="IReadOnlyRepositoryWithLongKey.cs" t="Include" />
+          <e p="IRepository.cs" t="Include" />
+          <e p="IRepositoryWithGuidKey.cs" t="Include" />
+          <e p="IRepositoryWithLongKey.cs" t="Include" />
+          <e p="IUnityOfWork.cs" t="Include" />
+          <e p="RepositoryExtensions.cs" t="Include" />
+        </e>
+        <e p="Results" t="Include">
+          <e p="Result.cs" t="Include" />
+          <e p="ResultMessage.cs" t="Include" />
+          <e p="ResultWithPaginatedData.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="CrudServiceBase.cs" t="Include" />
+          <e p="CrudServiceBaseAsync.cs" t="Include" />
+          <e p="ICrudService.cs" t="Include" />
+          <e p="ICrudServiceAsync.cs" t="Include" />
+          <e p="ILookUpService.cs" t="Include" />
+          <e p="IPaginatedService.cs" t="Include" />
+        </e>
+        <e p="User" t="Include">
+          <e p="IUserContextService.cs" t="Include" />
+          <e p="UserContextBase.cs" t="Include" />
+          <e p="UserContextService.cs" t="Include" />
+        </e>
+        <e p="Validation" t="Include">
+          <e p="IValidation.cs" t="Include" />
+          <e p="ValidationBase.cs" t="Include" />
+          <e p="ValidationMessage.cs" t="Include" />
+          <e p="ValidationResult.cs" t="Include" />
+          <e p="ValidationResultExtensions.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Hop.Framework.Domain.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.Domain.Tests" t="IncludeRecursive">
+        <e p="Async" t="Include">
+          <e p="ServicesAsyncTest.cs" t="Include" />
+        </e>
+        <e p="Commands" t="Include">
+          <e p="CommandHandlerTest.cs" t="Include" />
+        </e>
+        <e p="Hop.Framework.Domain.Tests.csproj" t="IncludeRecursive" />
+        <e p="Services" t="Include">
+          <e p="ServicesTest.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Hop.Framework.Domain.Tests.AssemblyInfo.cs" t="Include" />
+              <e p="Hop.Framework.Domain.Tests.Program.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.Tests" t="IncludeRecursive">
+        <e p="Configs" t="Include">
+          <e p="ConfigurationBuilder.cs" t="Include" />
+        </e>
+        <e p="Context" t="Include">
+          <e p="HopContextExtensions.cs" t="Include" />
+        </e>
+        <e p="FluentAssertions" t="Include">
+          <e p="FluentAssertionExtensions.cs" t="Include" />
+        </e>
+        <e p="Hop.Framework.UnitTests.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="Hop.Framework.UnitTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Hop.Framework.sln" t="IncludeFlat" />
+      <e p="Providers" t="Include">
+        <e p="EFCore" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

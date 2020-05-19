@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
-using Hop.Framework.Core.Messaging;
 
 namespace Hop.Framework.Core.Extensions
 {
@@ -11,11 +10,6 @@ namespace Hop.Framework.Core.Extensions
         public static byte[] GetBytes(this string str)
         {
             return Encoding.UTF8.GetBytes(str);
-        }
-
-        public static string GetMessagingName(this IEvent source)
-        {
-            return source.GetType().Name.ToLower();
         }
 
         public static int ToInt(this string texto)

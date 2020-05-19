@@ -18,6 +18,7 @@ using Hop.Framework.Domain.Services;
 using Hop.Framework.Domain.Validation;
 using Hop.Framework.FluentValidation;
 using Hop.Framework.UnitTests.DI;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -26,22 +27,22 @@ namespace Hop.Framework.Domain.Tests.Async
     [TestFixture]
     public class ServiceAsyncTest
     {
+        private IServiceCollection _serviceProvider;
+
         public ServiceAsyncTest()
         {
-            
+            _serviceProvider = new ServiceCollection();
+            _serviceProvider.AddModule();
         }
 
         [Test]
         public void Should_Execute_Create_Person_Command()
         {
-            using (ServiceResolver.BeginScope(ScopeType.Thread))
-            {
-                var service = ServiceResolver.Container.Resolve<IPersonService>();
-                var result = service.Create(new RegisterNewPersonCommand("John")).Result;
+            var service = serviceProvider.BuildServiceProvider().GetService<IPersonService>();
+            var result = service.Create(new RegisterNewPersonCommand("John")).Result;
 
-                Assert.AreEqual(false, ServiceResolver.Container.Resolve<IDomainNotificationHandler>().HasNotifications());
-                Assert.AreEqual(true, result.Success);
-            }
+            Assert.AreEqual(false, ServiceResolver.Container.Resolve<IDomainNotificationHandler>().HasNotifications());
+            Assert.AreEqual(true, result.Success);
         }
 
         [Test]
@@ -52,7 +53,8 @@ namespace Hop.Framework.Domain.Tests.Async
                 var service = ServiceResolver.Container.Resolve<IPersonService>();
                 var result = service.Create(new RegisterNewPersonCommand(null)).Result;
 
-                Assert.AreEqual(true, ServiceResolver.Container.Resolve<IDomainNotificationHandler>().HasNotifications());
+                Assert.AreEqual(true,
+                    ServiceResolver.Container.Resolve<IDomainNotificationHandler>().HasNotifications());
                 Assert.AreEqual(false, result.Success);
             }
         }
@@ -129,10 +131,12 @@ namespace Hop.Framework.Domain.Tests.Async
         }
     }
 
-    public class PersonService : CrudServiceBaseAsync<RegisterNewPersonCommand, UpdatePersonCommand, DeleteCommand<Guid>,
+    public class PersonService : CrudServiceBaseAsync<RegisterNewPersonCommand, UpdatePersonCommand, DeleteCommand<Guid>
+        ,
         PersonDomain, Guid, PersonFilter, PersonReadViewModel, PersonReadViewModel>, IPersonService
     {
-        public PersonService(IValidation<RegisterNewPersonCommand> registerNewPersonValidation, IValidation<UpdatePersonCommand> updatePersonValidation,
+        public PersonService(IValidation<RegisterNewPersonCommand> registerNewPersonValidation,
+            IValidation<UpdatePersonCommand> updatePersonValidation,
             IDomainNotificationHandler notifications, IUnityOfWork uow,
             IRepositoryWithGuidKey<PersonDomain> repository)
             : base(repository, notifications, registerNewPersonValidation, updatePersonValidation, uow)
@@ -182,7 +186,8 @@ namespace Hop.Framework.Domain.Tests.Async
         }
     }
 
-    public interface IPersonService : ICrudServiceAsync<RegisterNewPersonCommand, UpdatePersonCommand, DeleteCommand<Guid>, Guid, PersonFilter, PersonReadViewModel>,
+    public interface IPersonService : ICrudServiceAsync<RegisterNewPersonCommand, UpdatePersonCommand,
+            DeleteCommand<Guid>, Guid, PersonFilter, PersonReadViewModel>,
         ILookUpServiceAsync<PersonDomain, PersonFilter, PersonReadViewModel, Guid>
     {
     }
@@ -202,6 +207,7 @@ namespace Hop.Framework.Domain.Tests.Async
         {
             Name = name;
         }
+
         public PersonViewModel(Guid id, string name)
         {
             Id = id;
@@ -218,6 +224,7 @@ namespace Hop.Framework.Domain.Tests.Async
         {
             Name = name;
         }
+
         public PersonReadViewModel(Guid id, string name)
         {
             Id = id;
@@ -227,7 +234,6 @@ namespace Hop.Framework.Domain.Tests.Async
 
     public class RegisterNewPersonCommand : PersonCommand
     {
-
         public RegisterNewPersonCommand(string name) : base(name)
         {
         }
@@ -235,7 +241,6 @@ namespace Hop.Framework.Domain.Tests.Async
 
     public class UpdatePersonCommand : PersonCommand
     {
-
         public UpdatePersonCommand(string name) : base(name)
         {
         }
@@ -251,14 +256,14 @@ namespace Hop.Framework.Domain.Tests.Async
         }
     }
 
-    public class CommandModule : DependencyModule
+    public static class ServiceCollectionExtensions
     {
-        public override void Load(IContainer container)
+        public static IServiceCollection AddModule(this IServiceCollection container)
         {
-            container.Register<IPersonService, PersonService>();
-            container.Register<IValidation<RegisterNewPersonCommand>, RegisterNewPersonValidator>();
-            container.Register<IValidation<UpdatePersonCommand>, UpdatePersonValidator>();
-            container.Register<IUnityOfWork, UOW>();
+            container.AddScoped<IPersonService, PersonService>();
+            container.AddScoped<IValidation<RegisterNewPersonCommand>, RegisterNewPersonValidator>();
+            container.AddScoped<IValidation<UpdatePersonCommand>, UpdatePersonValidator>();
+            container.AddScoped<IUnityOfWork, UOW>();
             var repository = Substitute.For<IRepositoryWithGuidKey<PersonDomain>>();
             repository.GetById(Guid.Empty).ReturnsForAnyArgs(new PersonDomain("John"));
             repository.GetByIdAsync(Guid.Empty).ReturnsForAnyArgs(new PersonDomain("John"));
@@ -269,7 +274,8 @@ namespace Hop.Framework.Domain.Tests.Async
                 new PersonDomain("Javin"),
                 new PersonDomain("Maria"),
             }.AsQueryable());
-            container.Register<IRepositoryWithGuidKey<PersonDomain>>((a) => repository);
+            container.AddScoped<IRepositoryWithGuidKey<PersonDomain>>((a) => repository);
+            return container;
         }
     }
 
@@ -335,7 +341,8 @@ namespace Hop.Framework.Domain.Tests.Async
         {
         }
 
-        public Task<string> SaveAndCommitAsyncWithSaveResult(CancellationToken cancellationToken = default(CancellationToken))
+        public Task<string> SaveAndCommitAsyncWithSaveResult(
+            CancellationToken cancellationToken = default(CancellationToken))
         {
             throw new NotImplementedException();
         }
