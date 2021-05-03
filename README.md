@@ -4,24 +4,24 @@
 
 <b>What is HopFramework?</b>
 
-Hop Framework is a framework that began with a beer lover and IPA lover. IPA have as main characteristic the addition of different kinds of hops in brewing to increase the flavor and aroma of the beer. The project have as principal goal help developers to understand the DDD principles using some design patterns and applying that in your project as infrastructure.
+Hop Framework is a framework that began with a beer lover and IPA lover. IPA has as main characteristic the addition of different hops in brewing to increase the flavor and aroma of the beer. 
+The project has as main goal help developers to understand the DDD principles using design patterns and applying them in the project as infrastructure, It means that all the complexity will be abstracted and delivered by smalls packages.
 
 <b>Who should use this framework?</b>
 
-All developers that have the necessity to segregate the infrastructure from domain and want to focus on business development forgetting the complexity to think in architecture and that need to bootstrap a new infrastructure project every time that is requested a new business project.<br/>
-The project is based on DDD and some others design patterns with the goal of isolate the domain and business rules from the technology.
+All developers that have the necessity to segregate the infrastructure from domain and want to focus on business development forgetting the complexity to think in architecture and how to setup a new project every day.<br/>
+The project is based on DDD and few design patterns with the goal of isolate the domain and business rules from the infrastructure.
 
-<b>Patterns</b>
+<b>Design Patterns</b>
 
 Dependency Injection<br/>
 Inversion of Control<br/>
-Repository<br/>
+Repository Pattern<br/>
 Unity of Work<br/>
 Command Pattern<br/>
 Domain Notification<br/>
-Services<br/>
 
-<b>Language</b>
+<b>Framework</b>
 
-.NET Core<br/>
+.NET 5<br/>
 .NET Standard
