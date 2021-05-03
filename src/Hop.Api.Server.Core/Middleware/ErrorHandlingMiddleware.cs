@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using Hop.Api.Server.Core.Controllers;
+﻿using Hop.Api.Server.Core.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Hop.Api.Server.Core.Middleware
 {
-    //Fonte: https://stackoverflow.com/questions/38630076/asp-net-core-web-api-exception-handling
     public class ErrorHandlingMiddleware
     {
         private readonly RequestDelegate _next;

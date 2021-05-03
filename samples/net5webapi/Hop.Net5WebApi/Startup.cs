@@ -1,3 +1,4 @@
+using Hop.Api.Server.Core.Middleware;
 using Hop.Framework.Core.User;
 using Hop.Framework.Domain;
 using Hop.Framework.Domain.Dispatcher;
@@ -61,6 +62,7 @@ namespace Hop.Net5WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hop.Net5WebApi v1"));
             }
 
+            app.UseMiddleware<ErrorHandlingMiddleware>();
             app.UseRouting();
 
             app.UseAuthorization();
