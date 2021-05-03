@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Hop.Framework.Domain\Hop.Framework.Domain.csproj" />
+    <ProjectReference Include="..\..\..\src\Hop.Framework.FluentValidation\Hop.Framework.FluentValidation.csproj" />
+  </ItemGroup>
+
+</Project>

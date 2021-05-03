@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Hop.Framework.Data\Hop.Framework.EFCore.csproj" />
+    <ProjectReference Include="..\Hop.Net5WebApi.Domain\Hop.Net5WebApi.Domain.csproj" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.5" />
+  </ItemGroup>
+
+</Project>

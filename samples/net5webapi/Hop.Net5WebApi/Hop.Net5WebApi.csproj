@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Hop.Api.Server.Core\Hop.Api.Server.Core.csproj" />
+    <ProjectReference Include="..\Hop.Net5WebApi.Application\Hop.Net5WebApi.Application.csproj" />
+    <ProjectReference Include="..\Hop.Net5WebApi.Domain\Hop.Net5WebApi.Domain.csproj" />
+    <ProjectReference Include="..\Hop.Net5WebApi.Infra\Hop.Net5WebApi.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
