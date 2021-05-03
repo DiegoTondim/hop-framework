@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Core</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <Version>2.0.0</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <Authors>Diego Tondim</Authors>
     <Product>Hop Framework</Product>
     <PackageIconUrl>https://i.imgur.com/hlgdUPa.jpg</PackageIconUrl>
