@@ -1,9 +1,9 @@
 ﻿using Hop.Api.Server.Core.Middleware;
 using Microsoft.AspNetCore.Builder;
 
-namespace Hop.Api.Server.Core.Settings
+namespace Hop.Api.Server.Core
 {
-    public static class DefaultMiddlewareInitializer
+    public static class AppBuilderExtensions
     {
         public static IApplicationBuilder UseHopErrorHandlerMiddleware(this IApplicationBuilder app)
         {

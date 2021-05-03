@@ -7,7 +7,7 @@ using Hop.Framework.EFCore.Context;
 
 namespace Hop.Net5WebApi.Infra.UoW
 {
-    public class InMemoryUoW : IUnityOfWork
+    public class InMemoryUoW : IUnitOfWork
     {
         private readonly HopContextBase _context;
 

@@ -12,9 +12,9 @@ namespace Hop.Framework.Domain.Handlers
     public abstract class CommandHandlerBase
     {
         private readonly IDomainNotificationHandler _notifications;
-        private readonly IUnityOfWork _unityOfWork;
+        private readonly IUnitOfWork _unityOfWork;
 
-        protected CommandHandlerBase(IDomainNotificationHandler notifications, IUnityOfWork unityOfWork)
+        protected CommandHandlerBase(IDomainNotificationHandler notifications, IUnitOfWork unityOfWork)
         {
             _notifications = notifications;
             _unityOfWork = unityOfWork;
@@ -77,9 +77,9 @@ namespace Hop.Framework.Domain.Handlers
     public abstract class CommandHandlerBaseAsync
     {
         private readonly IDomainNotificationHandler _notifications;
-        private readonly IUnityOfWork _unityOfWork;
+        private readonly IUnitOfWork _unityOfWork;
 
-        protected CommandHandlerBaseAsync(IDomainNotificationHandler notifications, IUnityOfWork unityOfWork)
+        protected CommandHandlerBaseAsync(IDomainNotificationHandler notifications, IUnitOfWork unityOfWork)
         {
             _notifications = notifications;
             _unityOfWork = unityOfWork;

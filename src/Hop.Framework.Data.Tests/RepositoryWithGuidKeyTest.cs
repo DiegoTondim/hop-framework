@@ -29,7 +29,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				repository.AddOrUpdate(new TabelaTesteWithGuidKey()
 				{
@@ -61,7 +61,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var result = repository.AddOrUpdateAsync(new TabelaTesteWithGuidKey()
 				{
@@ -94,7 +94,7 @@ namespace Hop.Framework.EFCore.Tests
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
 
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				repository.AddOrUpdate(new TabelaTesteWithGuidKey()
 				{
@@ -123,7 +123,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var result = repository.AddOrUpdateAsync(new TabelaTesteWithGuidKey()
 				{
@@ -152,7 +152,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				repository.AddOrUpdate(new TabelaTesteWithGuidKey()
 				{
@@ -188,7 +188,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var result = repository.AddOrUpdateAsync(new TabelaTesteWithGuidKey()
 				{
@@ -224,7 +224,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				repository.AddOrUpdate(new TabelaTesteWithGuidKey()
 				{
@@ -253,7 +253,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var result = repository.AddOrUpdateAsync(new TabelaTesteWithGuidKey()
 				{
@@ -282,7 +282,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var registro = new TabelaTesteWithGuidKey()
 				{
@@ -309,7 +309,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeyRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var registro = new TabelaTesteWithGuidKey()
 				{
@@ -396,7 +396,7 @@ namespace Hop.Framework.EFCore.Tests
 			using (var context = new InMemoryContext())
 			{
 				IRepository<TabelaTesteSoftDeleteWithGuidKey, Guid> repository = new TabelaTesteWithGuidKeySoftDeleteRepository(context, GetUserContextService());
-				var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+				var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
 				var registro = new TabelaTesteSoftDeleteWithGuidKey()
 				{

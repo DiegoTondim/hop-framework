@@ -28,7 +28,7 @@ namespace Hop.Framework.Domain.Tests.Commands
                 .AddDomainNotifications()
                 .AddScoped<IPersonService, PersonService>()
                 .AddScoped<IValidation<RegisterNewPersonCommand>, RegisterNewPersonValidator>()
-                .AddScoped<IUnityOfWork, UOW>()
+                .AddScoped<IUnitOfWork, UOW>()
                 .BuildServiceProvider();
         }
 
@@ -82,7 +82,7 @@ namespace Hop.Framework.Domain.Tests.Commands
         private readonly IValidation<RegisterNewPersonCommand> _registerNewPersonValidation;
 
         public PersonService(IValidation<RegisterNewPersonCommand> registerNewPersonValidation,
-            IDomainNotificationHandler notifications, IUnityOfWork uow)
+            IDomainNotificationHandler notifications, IUnitOfWork uow)
             : base(notifications, uow)
         {
             _registerNewPersonValidation = registerNewPersonValidation;
@@ -155,7 +155,7 @@ namespace Hop.Framework.Domain.Tests.Commands
         }
     }
 
-    public class UOW : IUnityOfWork
+    public class UOW : IUnitOfWork
     {
         public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {

@@ -25,7 +25,7 @@ namespace Hop.Framework.Domain.Services
 
 		protected CrudServiceBaseAsync(IRepository<TEntity, TPrimaryKeyType> repository,
 			IDomainNotificationHandler domainNotification, IValidation<TNewCommand> newValidation, IValidation<TUpdateCommand> updateValidation,
-			IUnityOfWork uow, TRemoveCommandValidation removeValidation)
+			IUnitOfWork uow, TRemoveCommandValidation removeValidation)
 			: base(repository, domainNotification, newValidation, updateValidation, uow)
 		{
 			_removeValidation = removeValidation;
@@ -62,7 +62,7 @@ namespace Hop.Framework.Domain.Services
 		private readonly IValidation<TUpdateCommand> _updateValidation;
 
 		protected CrudServiceBaseAsync(IRepository<TEntity, TPrimaryKeyType> repository, IDomainNotificationHandler domainNotification,
-			IValidation<TNewCommand> newValidation, IValidation<TUpdateCommand> updateValidation, IUnityOfWork uow)
+			IValidation<TNewCommand> newValidation, IValidation<TUpdateCommand> updateValidation, IUnitOfWork uow)
 			: base(domainNotification, uow)
 		{
 			Repository = repository;

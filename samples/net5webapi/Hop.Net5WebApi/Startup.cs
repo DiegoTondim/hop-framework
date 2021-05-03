@@ -1,4 +1,5 @@
-using Hop.Api.Server.Core.Middleware;
+using Hop.Api.Server.Core;
+using Hop.Framework.Core;
 using Hop.Framework.Core.User;
 using Hop.Framework.Domain;
 using Hop.Framework.Domain.Dispatcher;
@@ -18,7 +19,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System;
 
 namespace Hop.Net5WebApi
 {
@@ -36,13 +36,13 @@ namespace Hop.Net5WebApi
         {
             services
                 .AddDomainNotifications()
-                .AddScoped<IDispatcher, Dispatcher>()
+                .AddUserContextService()
+                .AddDispatcher()
                 .AddScoped<IPersonService, PersonService>()
                 .AddScoped<IValidation<RegisterNewPersonCommand>, RegisterNewPersonValidator>()
                 .AddScoped<IValidation<UpdatePersonCommand>, UpdatePersonValidator>()
-                .AddScoped<IUnityOfWork, InMemoryUoW>()
+                .AddScoped<IUnitOfWork, InMemoryUoW>()
                 .AddScoped<IRepositoryWithGuidKey<PersonEntity>, PersonRepository>()
-                .AddScoped<IUserContextService, UserContextService>()
                 .AddSingleton<HopContextBase, DbContext>();
 
             services.AddControllers();
@@ -62,7 +62,7 @@ namespace Hop.Net5WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hop.Net5WebApi v1"));
             }
 
-            app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseHopErrorHandlerMiddleware();
             app.UseRouting();
 
             app.UseAuthorization();

@@ -33,7 +33,7 @@ namespace Hop.Framework.Domain.Tests.Async
             serviceCollection.AddScoped<IPersonService, PersonService>();
             serviceCollection.AddScoped<IValidation<RegisterNewPersonCommand>, RegisterNewPersonValidator>();
             serviceCollection.AddScoped<IValidation<UpdatePersonCommand>, UpdatePersonValidator>();
-            serviceCollection.AddScoped<IUnityOfWork, UOW>();
+            serviceCollection.AddScoped<IUnitOfWork, UOW>();
 
             var repository = Substitute.For<IRepositoryWithGuidKey<PersonDomain>>();
             repository.GetById(Guid.Empty).ReturnsForAnyArgs(new PersonDomain("John"));
@@ -152,7 +152,7 @@ namespace Hop.Framework.Domain.Tests.Async
         PersonDomain, Guid, PersonFilter, PersonReadViewModel, PersonReadViewModel>, IPersonService
     {
         public PersonService(IValidation<RegisterNewPersonCommand> registerNewPersonValidation, IValidation<UpdatePersonCommand> updatePersonValidation,
-            IDomainNotificationHandler notifications, IUnityOfWork uow,
+            IDomainNotificationHandler notifications, IUnitOfWork uow,
             IRepositoryWithGuidKey<PersonDomain> repository)
             : base(repository, notifications, registerNewPersonValidation, updatePersonValidation, uow)
         {
@@ -298,7 +298,7 @@ namespace Hop.Framework.Domain.Tests.Async
         }
     }
 
-    public class UOW : IUnityOfWork
+    public class UOW : IUnitOfWork
     {
         public void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {

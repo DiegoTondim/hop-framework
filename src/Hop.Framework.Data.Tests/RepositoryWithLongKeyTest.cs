@@ -28,7 +28,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 repository.AddOrUpdate(new TabelaTesteWithLongKey()
                 {
@@ -61,7 +61,7 @@ namespace Hop.Framework.EFCore.Tests
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
 
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 var result = repository.AddOrUpdateAsync(new TabelaTesteWithLongKey()
                 {
@@ -93,7 +93,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 repository.AddOrUpdate(new TabelaTesteWithLongKey()
                 {
@@ -122,7 +122,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 var result = repository.AddOrUpdateAsync(new TabelaTesteWithLongKey()
                 {
@@ -151,7 +151,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 repository.AddOrUpdate(new TabelaTesteWithLongKey()
                 {
@@ -187,7 +187,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 var result = repository.AddOrUpdateAsync(new TabelaTesteWithLongKey()
                 {
@@ -223,7 +223,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 repository.AddOrUpdate(new TabelaTesteWithLongKey()
                 {
@@ -252,7 +252,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 var result = repository.AddOrUpdateAsync(new TabelaTesteWithLongKey()
                 {
@@ -281,7 +281,7 @@ namespace Hop.Framework.EFCore.Tests
             using (var context = new InMemoryContext())
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 var registro = new TabelaTesteWithLongKey()
                 {
@@ -309,7 +309,7 @@ namespace Hop.Framework.EFCore.Tests
             {
                 IRepository<TabelaTesteWithLongKey, long> repository = new TabelaTesteWithLongKeyRepository(context, GetUserContextService());
 
-                var uow = new UnityOfWork(context, Substitute.For<ILogger<UnityOfWork>>());
+                var uow = new UnitOfWork(context, Substitute.For<ILogger<UnitOfWork>>());
 
                 var registro = new TabelaTesteWithLongKey()
                 {

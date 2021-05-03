@@ -1,11 +1,10 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hop.Framework.Domain.Repository
 {
-    public interface IUnityOfWork
+    public interface IUnitOfWork
     {
         void BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
 

@@ -1,23 +1,23 @@
-﻿using System;
+﻿using Hop.Framework.Domain.Repository;
+using Hop.Framework.EFCore.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Hop.Framework.EFCore.Context;
-using Hop.Framework.Domain.Repository;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.Extensions.Logging;
 
 namespace Hop.Framework.EFCore.Repository
 {
-    public class UnityOfWork : IUnityOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        public ILogger<UnityOfWork> Logger { get; }
+        public ILogger<UnitOfWork> Logger { get; }
         private readonly HopContextBase _context;
         private IDbContextTransaction _transaction;
 
-        public UnityOfWork(HopContextBase context, ILogger<UnityOfWork> logger)
+        public UnitOfWork(HopContextBase context, ILogger<UnitOfWork> logger)
         {
             Logger = logger;
             _context = context;

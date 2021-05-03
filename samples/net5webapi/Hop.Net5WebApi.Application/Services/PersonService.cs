@@ -19,7 +19,7 @@ namespace Hop.Net5WebApi.Application.Services
         PersonEntity, Guid, PersonFilter, PersonReadViewModel, PersonReadViewModel>, IPersonService
     {
         public PersonService(IValidation<RegisterNewPersonCommand> registerNewPersonValidation, IValidation<UpdatePersonCommand> updatePersonValidation,
-            IDomainNotificationHandler notifications, IUnityOfWork uow,
+            IDomainNotificationHandler notifications, IUnitOfWork uow,
             IRepositoryWithGuidKey<PersonEntity> repository)
             : base(repository, notifications, registerNewPersonValidation, updatePersonValidation, uow)
         {
